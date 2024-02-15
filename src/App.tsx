@@ -54,7 +54,6 @@ export default function App() {
   const onLogin = () => {
     setShowLogin(false);
     setAddress(LTOService.address);
-    
   }
 
   const logout = () => {
