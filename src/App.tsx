@@ -25,7 +25,7 @@ import Overlay from "./components/Overlay";
 import ConfirmDialog from "./components/ConfirmDialog";
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import {TypedOwnableInfo} from "./interfaces/TypedOwnableInfo";
-import Tabs from '@mui/material/Tabs';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
 export default function App() {
@@ -34,17 +34,22 @@ export default function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showPackages, setShowPackages] = React.useState(false);
   const [address, setAddress] = useState(LTOService.address);
-  const [ownables, setOwnables] = useState<Array<{chain: EventChain, package: string}>>([]);
+  const [ownables, setOwnables] = useState<Array<{chain: EventChain, package: string, keywords:string[]}>>([]);
   const [consuming, setConsuming] = useState<{chain: EventChain, package: string, info: TypedOwnableInfo}|null>(null);
   const [alert, setAlert] = useState<{title: string, message: React.ReactNode, severity: AlertColor}|null>(null);
+  const [value, setValue] = React.useState(0);
+  const [ownablesFromStorage, setOwnablesFromStorage] = useState<Array<{chain: EventChain, package: string, keywords:string[]}>>([]);
   const [confirm, setConfirm] =
     useState<{title: string, message: React.ReactNode, severity?: AlertColor, ok?: string, onConfirm: () => void}|null>(null);
 
   useEffect(() => {
     IDBService.open()
       .then(() => OwnableService.loadAll())
-      .then(ownables => setOwnables(ownables))
-      .then(() => setLoaded(true))
+      .then(ownables => {
+        setOwnablesFromStorage(ownables);
+        setOwnables(ownables);
+    })
+    .then(() => setLoaded(true))
   }, []);
 
   const showError = (title: string, message: string) => {
@@ -64,7 +69,7 @@ export default function App() {
 
   const forge = async (pkg: TypedPackage) => {
     const chain = OwnableService.create(pkg);
-    setOwnables([...ownables, {chain, package: pkg.cid}]);
+    setOwnables([...ownables, {chain, package: pkg.cid, keywords: pkg.keywords || []}]);
     setShowPackages(false);
     enqueueSnackbar(`${pkg.title} forged`, {variant: "success"});
   }
@@ -143,15 +148,46 @@ export default function App() {
     });
   }
 
+  const handleChange = async (event: React.SyntheticEvent, newValue: number) => {
+    const keyword = ['', 'consumable', 'ownable', 'usable', 'moveable'][newValue];
+    setValue(newValue);
+    console.log("new value", newValue, "keyword", keyword);
+    if (keyword === '') {
+      setOwnables(ownablesFromStorage);
+    } else {
+      const filteredOwnables = await (await Promise.all(ownablesFromStorage.map(async (ownable) => {
+        const pkg = await PackageService.info(ownable.package);
+        console.log("pkg", pkg);
+        console.log("pkg.keywords", pkg.keywords);
+        if (pkg.keywords?.includes(keyword)) {
+          console.log("keyword included");
+          return { chain: ownable.chain, package: ownable.package, keywords: pkg.keywords };
+        }
+        return null;
+      }))).filter((ownable: {chain: EventChain, package: string, keywords:string[]} | null) => ownable !== null);
+      setOwnables(filteredOwnables as { chain: EventChain, package: string, keywords: string[] }[]);
+    }
+  };
+
   return <>
     <AppToolbar onMenuClick={() => setShowSidebar(true)} />
     <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons
+        aria-label="visible arrows tabs example"
+        sx={{
+          [`& .${tabsClasses.scrollButtons}`]: {
+            '&.Mui-disabled': { opacity: 0.3 },
+          },
+        }}
       >
         <Tab label="All" />
         <Tab label="Consumables" />
         <Tab label="Ownables" />
         <Tab label="Usables" />
-        {/* <Tab label="Moving" /> */}
+        {/* <Tab label="Moveable" /> */}
     </Tabs>
     <If condition={ownables.length === 0}>
       <Grid
