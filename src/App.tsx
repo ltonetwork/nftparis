@@ -25,6 +25,8 @@ import Overlay from "./components/Overlay";
 import ConfirmDialog from "./components/ConfirmDialog";
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import {TypedOwnableInfo} from "./interfaces/TypedOwnableInfo";
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -143,6 +145,14 @@ export default function App() {
 
   return <>
     <AppToolbar onMenuClick={() => setShowSidebar(true)} />
+    <Tabs
+      >
+        <Tab label="All" />
+        <Tab label="Consumables" />
+        <Tab label="Ownables" />
+        <Tab label="Usables" />
+        {/* <Tab label="Moving" /> */}
+    </Tabs>
     <If condition={ownables.length === 0}>
       <Grid
         container
