@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "description": "Development tools for LTO Ownables",
-  "homepage": "https://ownables.info",
+  "homepage": "https://stiemsdev.github.io/ownables-demo/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
