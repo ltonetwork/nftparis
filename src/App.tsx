@@ -149,7 +149,7 @@ export default function App() {
   }
 
   const handleChange = async (event: React.SyntheticEvent, newValue: number) => {
-    const keyword = ['', 'consumable', 'ownable', 'usable', 'moveable', 'audible'][newValue];
+    const keyword = ['', 'consumable', 'ownable', 'usable', 'moveable', 'soundable'][newValue];
     setValue(newValue);
     console.log("new value", newValue, "keyword", keyword);
     if (keyword === '') {
@@ -194,7 +194,7 @@ export default function App() {
         <Tab label="Ownables" />
         <Tab label="Usables" />
         <Tab label="Moveables" />
-        <Tab label="Audibles" />
+        <Tab label="Soundable" />
     </Tabs>
     <If condition={ownables.length === 0}>
       <Grid

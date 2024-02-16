@@ -4,7 +4,7 @@ description = "Dreamgirl by Pat Smith"
 version = "0.1.0"
 authors = ["LTO Network <colin@lto.network>"]
 edition = "2018"
-keywords = ["audibles", "mp3", "Pat", "Smith",  "dreamgirl", "song"]
+keywords = ["soundable", "mp3", "Pat", "Smith",  "dreamgirl", "song"]
 
 exclude = [
   # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.

@@ -1,5 +1,5 @@
 [package]
-name = "ownable-flippedApes"
+name = "ownable-flipped_apes"
 description = "pixel ape"
 version = "0.1.0"
 authors = ["LTO Network <colin@lto.network>"]
