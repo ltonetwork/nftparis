@@ -181,6 +181,12 @@ export default function App() {
           [`& .${tabsClasses.scrollButtons}`]: {
             '&.Mui-disabled': { opacity: 0.3 },
           },
+          width: {
+            xs: '100%', // full width on extra small screens
+            sm: '100%', // full width on small screens
+            md: '50%',  // half width on medium screens and up
+          },
+          margin: 'auto', // center the tabs on medium screens and up
         }}
       >
         <Tab label="All" />
