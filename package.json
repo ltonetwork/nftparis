@@ -1,9 +1,9 @@
 {
-  "name": "@ltonetwork/ownable-sdk",
+  "name": "@ltonetwork/nftparis",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Development tools for LTO Ownables",
-  "homepage": "https://stiemsdev.github.io/ownables-demo/",
+  "description": "NFT Paris demo for LTO Ownables",
+  "homepage": "https://ownables.info",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -57,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ltonetwork/ownable-sdk.git"
+    "url": "git+https://github.com/ltonetwork/nftparis.git"
   },
   "keywords": [
     "webassembly",
