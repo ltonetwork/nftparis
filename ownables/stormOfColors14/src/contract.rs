@@ -34,7 +34,7 @@ pub fn instantiate(
         image: None,
         image_data: None,
         external_url: None,
-        description: Some("Storm of Colors 14".to_string()),
+        description: Some("Storm of Colors #14".to_string()),
         name: Some("Storm of Colors 14".to_string()),
         background_color: None,
         animation_url: None,

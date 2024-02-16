@@ -184,7 +184,7 @@ export default function App() {
           width: {
             xs: '100%', // full width on extra small screens
             sm: '100%', // full width on small screens
-            md: '50%',  // half width on medium screens and up
+            md: '60%',  // half width on medium screens and up
           },
           margin: 'auto', // center the tabs on medium screens and up
         }}

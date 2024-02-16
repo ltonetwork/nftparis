@@ -1,6 +1,6 @@
 [package]
 name = "ownable-storm_of_colors_14"
-description = "Storm of Colors 14"
+description = "Storm of Colors #14"
 version = "0.1.0"
 authors = ["LTO Network <colin@lto.network>"]
 edition = "2018"
