@@ -1,5 +1,5 @@
 [package]
-name = "ownable-storiedApes"
+name = "ownable-storied_apes"
 description = "Storied Apes Legacy"
 version = "0.1.0"
 authors = ["LTO Network <colin@lto.network>"]

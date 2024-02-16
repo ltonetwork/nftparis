@@ -135,7 +135,7 @@ export default class PackageService {
     const name: string = packageJson.name || zipFile.name.replace(/\.\w+$/, '');
     const title = name
       .replace(/^ownable-|-ownable$/, '')
-      .replace(/[-_]+/, ' ')
+      .replaceAll(/[-_]+/, ' ')
       .replace(/\b\w/, c => c.toUpperCase());
     const description: string|undefined = packageJson.description;
 
