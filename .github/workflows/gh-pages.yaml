@@ -20,11 +20,6 @@ jobs:
           - potion
           - robot
           - speakers
-          - dreamgirl
-          - storiedApes
-          - stormOfColors5
-          - stormOfColors14
-          - verticalFlippedApes
     concurrency: ci-${{ github.ref }}-${{ matrix.package }}
     runs-on: ubuntu-latest
     steps:
