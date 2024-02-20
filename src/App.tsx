@@ -28,7 +28,6 @@ import {TypedOwnableInfo} from "./interfaces/TypedOwnableInfo";
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [showLogin, setShowLogin] = useState(!LTOService.isUnlocked());
