@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('Montserrat-VariableFont_wght.ttf');
+          }
+
+          html, body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+          }
+
+          body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+
+          .cookie-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+          }
+
+          .cookie-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+          }
+
+          .cookie-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+
+          .cookie-button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+          }
+          #cookie1{
+            display: none;
+          }
+          #cookie2{
+            display: none;
+          }
+          #cookie3{
+            display: none;
+          }
+          #cookie4{
+            display: none;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="cookie-container">
+          <img id="cookie1" class="cookie-image" src="whole_cookie.png" alt="Whole Cookie">
+          <img id="cookie2" class="cookie-image" src="half_cookie.png" alt="Half Cookie">
+          <img id="cookie3" class="cookie-image" src="quarter_cookie.png" alt="Quarter Cookie">
+          <img id="cookie4" class="cookie-image" src="no_cookie.png" alt="No Cookie">
+          <button id="eat-button" class="cookie-button">Nom Nom Nom</button>
+        </div>
+
+        <script>
+          let ownable_id;
+          let current_amount;
+          document.getElementById("eat-button").addEventListener('click', () => consume());
+
+          function updateTemplate(current_amount) {
+            if (current_amount === 0) {
+              cookie1.style.display = "inline-block";
+            } else if (current_amount === 1) {
+              cookie2.style.display = "inline-block";
+            } else if (current_amount === 2) {
+              cookie3.style.display = "inline-block";
+            } else if (current_amount === 3) {
+              button.disabled = true;
+              button.textContent = "No cookies here";
+              cookie4.style.display = "inline-block";
+            }
+          };
+
+          var button = document.querySelector(".cookie-button");
+          var cookie1 = document.getElementById("cookie1");
+          var cookie2 = document.getElementById("cookie2");
+          var cookie3 = document.getElementById("cookie3");
+          var cookie4 = document.getElementById("cookie4");
+
+           window.addEventListener("message", (event) => {
+            ownable_id = event.data.ownable_id;
+            const state = event.data.state;
+            current_amount = state.current_amount;
+            updateTemplate(current_amount);
+          });
+
+          function consume() {
+            if (current_amount >= 0 && current_amount < 3) {
+              current_amount++;
+              if (current_amount=== 1)
+              {
+                cookie1.style.display = "none";
+                cookie2.style.display = "inline-block";
+              }
+              if(current_amount === 2)
+              {
+                cookie2.style.display = "none";
+                cookie3.style.display = "inline-block";
+              }
+              if (current_amount === 3) {
+                button.disabled = true;
+                button.textContent = "No cookies here";
+                cookie3.style.display = "none";
+                cookie4.style.display = "inline-block";
+              }
+              
+              let msg = {
+                "eat": {
+                  "amount": current_amount,
+                },
+              };
+              console.log("msg", msg);
+              window.parent.postMessage({type: "execute", ownable_id, msg}, "*");
+            }
+          }
+        </script>
+      </body>
+    </html>
+
+
+    

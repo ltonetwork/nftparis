@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat-VariableFont_wght.ttf') format('woff');
+}
+
+html, body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+#image-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  perspective: 1000px;
+}
+
+#image-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+#image-container img.flipped {
+  transform: rotateY(180deg);
+}
+
+#image-container img {
+  /* ... */
+  transition: transform 2s ease;
+  /* ... */
+}
+
+#audio-controls {
+  margin-top: 20px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #717171;
+}
+
+#audioPlayer {
+  display: flex;
+  align-items: center;
+  width: 270px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#audioPlayer button {
+  margin-right: 5px;
+  background-color: transparent;
+  /* Change this to your desired blue color */
+  border: none;
+  color: grey;
+  padding: 3px;
+  /* Reduced padding to make button smaller */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  /* Reduced font size to make button smaller */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  /* Reduced width to make button smaller */
+  height: 30px;
+}
+
+#audioPlayer button:hover {
+  background-color: transparent;
+}
+
+#audioPlayer span {
+  margin: 0 10px;
+}
+
+#audioPlayer input[type="range"] {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+#audioPlayer input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+  height: 5px;
+  background: #000000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#audioPlayer input[type="range"]::-moz-range-thumb {
+  width: 5px;
+  height: 5px;
+  background: #000000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#timeDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+}
+
+#timeDisplay span {
+  font-size: 14px;
+  /* Reduced font size to make time smaller */
+  margin: 0;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you Swifties</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="image-container">
+        <img id="image" src="Taytayfront.png" alt="First Image" onclick="flipImage(1)">
+        <img id="second-image" src="taytaythanks.png" alt="Second Image" class="flipped" onclick="flipImage(0)">
+      </div>
+      <div>
+        <span class="dot active" onclick="flipImage(0)"></span>
+        <span class="dot" onclick="flipImage(1)"></span>
+      </div>
+      <!-- <div id="audio-controls">
+        <audio id="audio" controls> -->
+          <div id="audioPlayer">
+            <audio id="myAudio" preload="metadata">
+          <source src="Taylor Swift - Cruel Summer.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <button id="playButton">
+          &#x25B6;
+        </button>
+        <span id="timeDisplay">
+          <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+        </span>
+        <input id="progressBar" type="range" min="0" value="0" step="1">
+      </div>
+      <!-- <audio id="radio" controls></audio> -->
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+    <!-- <script>
+      var audio = document.getElementById('myAudio');
+      var playButton = document.getElementById('playButton');
+      var progressBar = document.getElementById('progressBar');
+      var currentTime = document.getElementById('currentTime');
+      var totalTime = document.getElementById('totalTime');
+    
+      audio.addEventListener('loadedmetadata', function() {
+        progressBar.max = audio.duration;
+        var minutes = Math.floor(audio.duration / 60);
+        var seconds = Math.floor(audio.duration % 60);
+        totalTime.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+      });
+    
+      audio.addEventListener('timeupdate', function() {
+        progressBar.value = audio.currentTime;
+        var minutes = Math.floor(audio.currentTime / 60);
+        var seconds = Math.floor(audio.currentTime % 60);
+        currentTime.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+      });
+    
+      progressBar.addEventListener('input', function() {
+        audio.currentTime = progressBar.value;
+      });
+    
+      playButton.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play();
+          playButton.innerHTML = '&#x23F8;';
+        } else {
+          audio.pause();
+          playButton.innerHTML = '&#x25B6;';
+        }
+      });
+    </script> -->
+  </body>
+</html>

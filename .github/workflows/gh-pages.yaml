@@ -16,10 +16,14 @@ jobs:
           - antenna
           - armor
           - car
+          - cookie
           - paint
           - potion
           - robot
           - speakers
+          - storiedApes
+          - verticalFlippedApes
+          - taytay
     concurrency: ci-${{ github.ref }}-${{ matrix.package }}
     runs-on: ubuntu-latest
     steps:
