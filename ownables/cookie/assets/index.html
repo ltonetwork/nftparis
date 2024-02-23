@@ -33,6 +33,7 @@
           }
 
           .cookie-button {
+            display: none;
             padding: 10px 20px;
             font-size: 18px;
             background-color: #4CAF50;
@@ -71,6 +72,7 @@
         <script>
           let ownable_id;
           let current_amount;
+
           document.getElementById("eat-button").addEventListener('click', () => consume());
 
           function updateTemplate(current_amount) {
@@ -85,6 +87,7 @@
               button.textContent = "No cookies here";
               cookie4.style.display = "inline-block";
             }
+            button.style.display = "block";
           };
 
           var button = document.querySelector(".cookie-button");

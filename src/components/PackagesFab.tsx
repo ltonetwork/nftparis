@@ -105,7 +105,7 @@ export default function PackagesFab(props: PackagesFabProps) {
   };
 
   return <>
-    <Fab sx={{...fabStyle, zIndex: 2000 }} aria-label="add" size="large" onClick={onOpen}>
+    <Fab sx={fabStyle} aria-label="add" size="large" onClick={onOpen}>
       <AddIcon fontSize="large" />
     </Fab>
     <PackagesDialog
