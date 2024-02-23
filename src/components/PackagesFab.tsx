@@ -31,7 +31,7 @@ function PackagesDialog(props: PackagesDialogProps) {
       <List sx={{pt: 0, minWidth: 250}} disablePadding>
         {packages.map((pkg) => (
           <ListItem disablePadding disableGutters key={pkg.title}>
-            <Tooltip condition={"stub" in pkg} title={`Import ${pkg.title} example`} placement="right" arrow>
+            <Tooltip condition={"stub" in pkg} title={`Import ${pkg.title} example`} placement="top" arrow>
               <ListItemButton onClick={() => onSelect(pkg)} style={{textAlign: "center", color: "stub" in pkg ? "#666" : undefined }}>
                 <ListItemText
                   primary={pkg.title}
