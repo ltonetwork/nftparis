@@ -52,6 +52,14 @@ export default function App() {
     .then(() => setLoaded(true))
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflowX = 'hidden';
+
+    return () => {
+      document.body.style.overflowX = 'auto';
+    };
+  }, []);
+
   const showError = (title: string, message: string) => {
     setAlert({severity: "error", title, message});
   }

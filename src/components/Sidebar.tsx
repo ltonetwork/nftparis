@@ -83,7 +83,7 @@ export default function Sidebar(props: SidebarProps) {
         </Box>
 
         <Box component="div" sx={{mt: 4}}>
-          <FormControlLabel control={<Switch checked={anchoring} onChange={e => setAnchoring(e.target.checked)} />} label="Anchor events" sx={{mb: 1}} />
+          {/* <FormControlLabel  control={<Switch checked={anchoring} onChange={e => setAnchoring(e.target.checked)} />} label="Anchor events" sx={{mb: 1}} /> */}
 
           <Typography sx={{ fontSize: 14 }} gutterBottom>
             <Link href={process.env.REACT_APP_LTO_EXPLORER_URL} target="_blank" underline="none" color="inherit" style={{display: "block"}}>
