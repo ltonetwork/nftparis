@@ -273,7 +273,7 @@ export default function App() {
       </Box>
     </HelpDrawer>
 
-    <SnackbarProvider autoHideDuration={1000}/>
+    <SnackbarProvider autoHideDuration={800}/>
     <AlertDialog open={alert !== null} onClose={() => setAlert(null)} {...alert!}>{alert?.message}</AlertDialog>
     <ConfirmDialog open={confirm !== null} onClose={() => setConfirm(null)} {...confirm!}>{confirm?.message}</ConfirmDialog>
     <Loading show={!loaded} />
