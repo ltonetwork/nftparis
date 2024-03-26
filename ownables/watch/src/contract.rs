@@ -34,7 +34,7 @@ pub fn instantiate(
         image: None,
         image_data: None,
         external_url: None,
-        description: Some("RWA are coming stay tuned".to_string()),
+        description: Some("RWA's are coming".to_string()),
         name: Some("Watch".to_string()),
         background_color: None,
         animation_url: None,
@@ -272,6 +272,7 @@ fn query_ownable_metadata(deps: Deps) -> StdResult<Binary> {
         background_color: cw721.background_color,
         animation_url: cw721.animation_url,
         youtube_url: cw721.youtube_url,
+        // keywords: cw721.keywords,
     })
 }
 
