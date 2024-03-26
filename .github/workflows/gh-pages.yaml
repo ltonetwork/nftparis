@@ -24,6 +24,7 @@ jobs:
           - storiedApes
           - verticalFlippedApes
           - taytay
+          - watch
     concurrency: ci-${{ github.ref }}-${{ matrix.package }}
     runs-on: ubuntu-latest
     steps:

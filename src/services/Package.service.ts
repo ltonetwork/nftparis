@@ -19,7 +19,8 @@ const examples: TypedPackageStub[] = exampleUrl ? [
   { title: 'Taytay', name: 'ownable-taytay', description: 'Thank you Swifties for all your love and support', stub: true },
   { title: 'Cookie', name: 'ownable-cookie', description: 'A delicious cookie', stub: true },
   { title: 'Storied apes', name: 'ownable-storiedApes', description: 'Storied Apes Legacy', stub: true },
-  {title: 'Flipped apes', name: 'ownable-verticalFlippedApes', description: 'Vertical flipped apes', stub: true},
+  { title: 'Flipped apes', name: 'ownable-verticalFlippedApes', description: 'Vertical flipped apes', stub: true },
+  { title: 'Watch', name: 'ownable-watch', description: 'Real World Asset', stub: true },
 ] : [];
 export const HAS_EXAMPLES = exampleUrl !== '';
 
